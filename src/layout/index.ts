@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion"
 
+
+
+export const ASH1 = styled(motion.h1)`
+  text-shadow: -2px 34px 14px rgba(50, 50, 50, 1);
+`;
+
 export const Container = styled.div`
   position: fixed;
   top: 0;
