@@ -11,8 +11,6 @@
 
 ## Using Online
 
-1. Go to link [here](https://www.messenger.com/t/100005543894347)
 ![preview-image](https://raw.githubusercontent.com/kubo550/McDolan-coupon-genertor/master/mcd-preview.png)
 
-
-
+1. Go to link [here](https://www.messenger.com/t/100005543894347)
