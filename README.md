@@ -3,11 +3,11 @@
 ![preview-image](https://raw.githubusercontent.com/kubo550/McDolan-coupon-genertor/master/mcd-preview.png)
 
 ## Instalation
-
-Install all dependencies
+1. Clone Repo `git clone `
+1. Install all dependencies
 ` npm i `
 
-Start Project on your local server *127.0.0.1*
+1. Start Project on your local server *127.0.0.1*
 ` npm start `
 
 ## Project Not Finished Yet
