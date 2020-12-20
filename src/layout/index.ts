@@ -7,21 +7,8 @@ export const ASH1 = styled(motion.h1)`
   text-shadow: -2px 34px 14px rgba(50, 50, 50, 1);
 `;
 
-export const Container = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  text-align:center;
-  align-items:center;
-  background-color: #757575;
-  font-family: 'Lato', sans-serif;
+export const Container = styled(motion.div)`
+  
 `;
 
 export const ASH2 = styled(motion.h2)`
