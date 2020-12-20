@@ -1,13 +1,32 @@
 import { FC } from "react";
 import { imageTypes } from "../../img";
 import { couponProps } from "../../App";
+import { motion } from "framer-motion";
+import styled from "styled-components";
+import { contentVariants } from "../Type/Type";
 
 interface couponType {
   coupon: couponProps;
 }
 
+const NonStyledWrapper = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: block;
+  padding: 10px;
+  text-align: left;
+`;
 export const Result: FC<couponType> = ({ coupon: { type, date, code } }) => (
-  <div>
+  <NonStyledWrapper
+    variants={contentVariants}
+    initial='hidden'
+    animate='visible'
+    exit='exit'
+  >
     <p>Dzień dobry,</p>
     <p>Przesyłamy kupon McDonald's w podziękowaniu za wzięcie udziału w ankiecie.</p>
     <p>
@@ -17,8 +36,7 @@ export const Result: FC<couponType> = ({ coupon: { type, date, code } }) => (
       <strong>UNIKALNY KOD:</strong> <span> {code} </span>
     </p>
     <img
-      // @ts-ignore
-      src={imageTypes[type]}
+      src={type && imageTypes[type]}
       alt='Wróć na stronę główna i dokonaj ponownego wyboru jeśli problem dalej występuje twoja przeglądarka nie obsługuje JavaScript lub nie masz połączenia z siecią'
       style={{ width: "100%", maxWidth: "580px" }}
     />
@@ -54,5 +72,5 @@ export const Result: FC<couponType> = ({ coupon: { type, date, code } }) => (
       </a>
     </div>
     <p>Dziękujemy za wzięcie udziału w badaniu!</p>
-  </div>
+  </NonStyledWrapper>
 );

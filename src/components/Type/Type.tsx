@@ -15,26 +15,40 @@ interface typeProps {
   setCouponType: (type: couponType) => void;
 }
 
+export const contentVariants = {
+  hidden: {
+    x: "100%",
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+    },
+  },
+  exit: {
+    x: "-100%",
+    transition: { ease: "easeInOut" },
+  },
+};
+
 const possibleTypes: couponType[] = ["hamburger", "frytki", "lody", "cheeseburger"];
 
 export const Type: FC<typeProps> = ({ type, setCouponType }) => {
   return (
-    <Container>
-      <ASH2
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        Step 1. Chose coupon you want.
-      </ASH2>
+    <Container variants={contentVariants} initial='hidden' animate='visible' exit='exit'>
+      <ASH2>Step 1. Chose coupon you want.</ASH2>
 
-      <ButtonsWrapper initial={{ x: "100%", opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
+      <ButtonsWrapper>
         {possibleTypes.map(typ => (
           <OptionButton
             key={typ}
             active={type === typ}
             onClick={() => setCouponType(typ)}
           >
+            {/* Wiadomo co */}
             {typ === "hamburger" && "🍔"}
             {typ === "frytki" && "🍟"}
             {typ === "cheeseburger" && "🍔"}
@@ -44,11 +58,7 @@ export const Type: FC<typeProps> = ({ type, setCouponType }) => {
         ))}
       </ButtonsWrapper>
 
-      <LinkButtonsWrapper
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <LinkButtonsWrapper>
         <LinkButton as={Link} to='/'>
           🔙 Back
         </LinkButton>

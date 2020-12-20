@@ -8,29 +8,20 @@ import {
   ASH2,
   LinkButtonsWrapper,
 } from "../../layout";
+import { generateLastWeek } from "../../utils";
+import { contentVariants } from "../Type/Type";
 
 interface dateProps {
   date: String;
   setCouponDate: (date: string) => void;
 }
 
-const generateLastWeek = () =>
-  Array(6)
-    .fill(null)
-    .map((_, i) => `0${9 - i}/12/2020`);
-
 export const Date: FC<dateProps> = ({ date, setCouponDate }) => {
   const week = generateLastWeek();
   return (
-    <Container>
-      <ASH2
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        Step 2. Chose date for your coupon.
-      </ASH2>
-      <ButtonsWrapper initial={{ x: "100%" }} animate={{ x: 0 }}>
+    <Container variants={contentVariants} initial='hidden' animate='visible' exit='exit'>
+      <ASH2>Step 2. Chose date for your coupon.</ASH2>
+      <ButtonsWrapper>
         {week.map(day => (
           <OptionButton
             key={day}
@@ -41,11 +32,7 @@ export const Date: FC<dateProps> = ({ date, setCouponDate }) => {
           </OptionButton>
         ))}
       </ButtonsWrapper>
-      <LinkButtonsWrapper
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
+      <LinkButtonsWrapper>
         <LinkButton as={Link} to='/step1'>
           🔙 Back
         </LinkButton>
