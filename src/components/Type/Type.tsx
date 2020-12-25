@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { couponType } from "../../App";
@@ -24,17 +25,32 @@ export const contentVariants = {
     x: 0,
     opacity: 1,
     transition: {
-      type: "spring",
+      type: "tween",
       stiffness: 100,
+      duration: 0.6,
     },
   },
   exit: {
     x: "-100%",
+    opacity: 0,
     transition: { ease: "easeInOut" },
   },
 };
-
 const possibleTypes: couponType[] = ["hamburger", "frytki", "lody", "cheeseburger"];
+const getIcon = (typ: couponType) => {
+  switch (typ) {
+    case "hamburger":
+      return "🍔";
+    case "hamburger":
+      return "🍟";
+    case "hamburger":
+      return "🍔";
+    case "hamburger":
+      return "🍨";
+    default:
+      return "🍔";
+  }
+};
 
 export const Type: FC<typeProps> = ({ type, setCouponType }) => {
   return (
@@ -48,11 +64,7 @@ export const Type: FC<typeProps> = ({ type, setCouponType }) => {
             active={type === typ}
             onClick={() => setCouponType(typ)}
           >
-            {/* Wiadomo co */}
-            {typ === "hamburger" && "🍔"}
-            {typ === "frytki" && "🍟"}
-            {typ === "cheeseburger" && "🍔"}
-            {typ === "lody" && "🍨"}
+            {getIcon(typ)}
             {typ}
           </OptionButton>
         ))}
@@ -63,9 +75,11 @@ export const Type: FC<typeProps> = ({ type, setCouponType }) => {
           🔙 Back
         </LinkButton>
         {type && (
-          <LinkButton as={Link} to='step2'>
-            🥫 Next
-          </LinkButton>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <LinkButton as={Link} to='step2'>
+              🥫 Next
+            </LinkButton>
+          </motion.div>
         )}
       </LinkButtonsWrapper>
     </Container>
