@@ -41,11 +41,11 @@ const getIcon = (typ: couponType) => {
   switch (typ) {
     case "hamburger":
       return "🍔";
-    case "hamburger":
+    case "frytki":
       return "🍟";
-    case "hamburger":
+    case "cheeseburger":
       return "🍔";
-    case "hamburger":
+    case "lody":
       return "🍨";
     default:
       return "🍔";
