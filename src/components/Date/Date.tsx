@@ -39,7 +39,7 @@ export const Date: FC<dateProps> = ({ date, setCouponDate }) => {
         </LinkButton>
         {date && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <LinkButton as={Link} to='step2'>
+            <LinkButton as={Link} to='result'>
               🥫 Next
             </LinkButton>
           </motion.div>
