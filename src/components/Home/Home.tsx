@@ -14,11 +14,8 @@ export const Home: FC = () => (
     </ASH1>
     <p>
       Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit. Libero culpa eos
-      ipsam eius fugit ut ipsum, illum quisquam illo ad reprehenderit rem praesentium,
-      dicta adipisci
-      {/* hic temporibus quasi, maxime facilis! Reprehenderit architecto ea enim explicabo,
-      consequuntur facere tenetur itaque quisquam dolorem dicta dolorum est praesentium
-      culpa ducimus esse quis provident modi ullam ut a ipsa quaerat aut officia! */}
+      ipsam eius fugit ut ipsum,
+      <br /> illum quisquam illo ad reprehenderit rem praesentium, dic
     </p>
     <LinkButton as={Link} to='/step1'>
       Lets Start
