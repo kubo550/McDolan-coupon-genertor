@@ -3,6 +3,8 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { Home, Type, Date, Result } from "./components";
 import { getUniqeCode } from "./utils/index";
 import { AnimatePresence } from "framer-motion";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
 export type couponType = "hamburger" | "cheeseburger" | "lody" | "frytki";
 
 export interface couponProps {
@@ -22,8 +24,10 @@ const App = () => {
   const setCouponType = (type: couponType) => setCoupon(prev => ({ ...prev, type }));
   const setCouponDate = (date: string) => setCoupon(prev => ({ ...prev, date }));
 
+  const theme = createMuiTheme();
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.key}>
           <Route exact path='/' component={Home} />
@@ -38,7 +42,7 @@ const App = () => {
           </Route>
         </Switch>
       </AnimatePresence>
-    </>
+    </ThemeProvider>
   );
 };
 
