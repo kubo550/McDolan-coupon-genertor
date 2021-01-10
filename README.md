@@ -1,7 +1,7 @@
 # Generate Mc'Donal fake coupon
 
 ## Project Not Finished Yet
-13145678
+
 ![preview-image](https://raw.githubusercontent.com/kubo550/McDolan-coupon-genertor/master/mcd-preview2.png)
 
 ## Instalation
