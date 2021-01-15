@@ -1,6 +1,6 @@
 # Generate Mc'Donal fake coupon
 
-You can use it online for free 123456789
+You can use it online for free 
 
 ## Project Not Finished Yet
 
