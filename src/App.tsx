@@ -21,15 +21,20 @@ const App = () => {
     code: getUniqeCode(),
   });
 
-  const setCouponType = (type: couponType) => setCoupon(prev => ({ ...prev, type }));
-  const setCouponDate = (date: string) => setCoupon(prev => ({ ...prev, date }));
+  const setCouponType = (type: couponType) => {
+    setCoupon(prev => ({ ...prev, type }));
+  };
+
+  const setCouponDate = (date: string) => {
+    setCoupon(prev => ({ ...prev, date }));
+  };
 
   const theme = createMuiTheme();
 
   return (
     <ThemeProvider theme={theme}>
       <AnimatePresence exitBeforeEnter>
-        <Switch location={location} key={location.key}>
+        <Switch location={location} key={location.pathname}>
           <Route exact path='/' component={Home} />
           <Route path='/step1'>
             <Type type={coupon.type} setCouponType={setCouponType} />
